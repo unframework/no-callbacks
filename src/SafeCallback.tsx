@@ -6,13 +6,11 @@ import React, {
   useState
 } from 'react';
 
-import { createTrigger, TriggerComponent } from './Trigger';
+import { createTrigger, Trigger } from './Trigger';
 
-export type SafeCallbackTriggerComponent = TriggerComponent;
+export type SafeCallbackTrigger = Trigger;
 
-export function useSafeCallback(
-  callback?: () => void
-): SafeCallbackTriggerComponent {
+export function useSafeCallback(callback?: () => void): SafeCallbackTrigger {
   // wrap in ref to avoid triggering
   const callbackRef = useRef(callback);
   callbackRef.current = callback;
@@ -35,8 +33,8 @@ export function useSafeCallback(
     }
   }, [wasClicked]);
 
-  // trigger wrapper component
-  const triggerComponent = useMemo(
+  // trigger wrapper component, etc
+  const trigger = useMemo(
     () =>
       createTrigger(() => {
         if (unmountedRef.current) {
@@ -48,5 +46,5 @@ export function useSafeCallback(
     []
   );
 
-  return triggerComponent;
+  return trigger;
 }

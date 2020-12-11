@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import { useSafeCallback } from './SafeCallback';
 
 const App = () => {
-  const HiTrigger = useSafeCallback(() => {
+  const hiTrigger = useSafeCallback(() => {
     window.alert('oh hi there!');
   });
 
@@ -12,9 +12,9 @@ const App = () => {
     <div className="App">
       <h1>Trigger Test</h1>
 
-      <HiTrigger>
+      <hiTrigger.attach>
         <button type="button">Hi</button>
-      </HiTrigger>
+      </hiTrigger.attach>
     </div>
   );
 };
