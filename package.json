@@ -27,6 +27,11 @@
     ]
   },
   "devDependencies": {
-    "prettier": "^2.0.5"
+    "@babel/core": "^7.12.3",
+    "@storybook/addon-actions": "^6.0.28",
+    "@storybook/react": "^6.0.28",
+    "babel-loader": "^8.2.1",
+    "prettier": "^2.0.5",
+    "react-is": "^16.8.0"
   }
 }
