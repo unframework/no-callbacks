@@ -26,12 +26,12 @@ export function useSafeCallback(callback?: () => void): SafeCallbackTrigger {
   // use state + effect to run the actual callback to isolate errors
   // @todo consider effects on stack trace usefulness though
   // @todo consider true async invocation?
-  const [wasClicked, setWasClicked] = useState(false);
+  const [activationCount, setActivationCount] = useState(0);
   useEffect(() => {
-    if (wasClicked && callbackRef.current) {
+    if (activationCount > 0 && callbackRef.current) {
       callbackRef.current();
     }
-  }, [wasClicked]);
+  }, [activationCount]);
 
   // trigger wrapper component, etc
   const trigger = useMemo(
@@ -41,7 +41,7 @@ export function useSafeCallback(callback?: () => void): SafeCallbackTrigger {
           return;
         }
 
-        setWasClicked(true);
+        setActivationCount((prev) => prev + 1);
       }),
     []
   );
