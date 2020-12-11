@@ -3,7 +3,9 @@ import ReactDOM from 'react-dom';
 
 import { useSafeCallback } from './SafeCallback';
 
-const App = () => {
+import './index.css';
+
+const App: React.FC = () => {
   const hiTrigger = useSafeCallback(() => {
     window.alert('oh hi there!');
   });
