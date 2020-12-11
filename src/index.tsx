@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useMemo, useRef, useState } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 
 import { useSafeCallback } from './SafeCallback';
